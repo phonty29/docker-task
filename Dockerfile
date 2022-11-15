@@ -1,9 +1,13 @@
 FROM tomcat:9.0-alpine 
 
-RUN mkdir /usr/local/tomcat/webapps/examples/docker-task
+LABEL maintainer="amedovbekmuhamet@gmail.com"
 
-COPY . /usr/local/tomcat/webapps/examples/docker-task/
+RUN mkdir /usr/local/tomcat/webapps/docker-task
+
+COPY /src/ /usr/local/tomcat/webapps/docker-task/
 
 EXPOSE 8080
+
+CMD ["catalina.sh", "run"]
 
 
